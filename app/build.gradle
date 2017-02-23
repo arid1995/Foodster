@@ -1,0 +1,37 @@
+apply plugin: 'com.android.application'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias 'foodster'
+            keyPassword 'arid1995'
+            storeFile file('C:/AndroidRelated/key.jks')
+            storePassword 'tank1995'
+        }
+    }
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+    defaultConfig {
+        applicationId "com.drewjames.foodster"
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode 5
+        versionName "1.2"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:24.2.0'
+    compile files ('libs/mail.jar')
+    compile files ('libs/additionnal.jar')
+    compile files ('libs/activation.jar')
+}
